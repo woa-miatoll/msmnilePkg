@@ -77,6 +77,7 @@ AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/SPMIDxe/SPMIDxe.inf
 AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/SdccDxe/SdccDxe.inf
 AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
+AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
 AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
 AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
@@ -92,7 +93,6 @@ AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Application/QcomChargerApp/Qco
 #QcomPkg/Drivers/ShmBridgeDxe/ShmBridgeDxeLA.inf
 
 # Device Specific Patched DXE
-AtollPkg/Device/$(TARGET_DEVICE)/PatchedBinaries/ButtonsDxe.inf
 AtollPkg/Device/$(TARGET_DEVICE)/PatchedBinaries/UFSDxe.inf
 AtollPkg/Device/$(TARGET_DEVICE)/PatchedBinaries/DisplayDxe.inf
 # Platform Specific Patched DXE

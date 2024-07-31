@@ -85,7 +85,7 @@ INF AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/SdccDxe/SdccDxe.in
 INF AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/TLMMDxe/TLMMDxe.inf
 #INF AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/DisplayDxe/DisplayDxe.inf
 INF AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/PlatformInfoDxe/PlatformInfoDxe.inf
-#INF AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
+INF AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
 INF AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/PmicDxe/PmicDxeLa.inf
 INF AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/ChargerExDxe/ChargerExDxe.inf
 INF AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/QcomChargerDxe/QcomChargerDxeLA.inf
@@ -103,7 +103,6 @@ INF AtollPkg/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Application/QcomChargerApp
 
 ## Patched Binaries
 # Device Specific Patched DXE
-INF AtollPkg/Device/$(TARGET_DEVICE)/PatchedBinaries/ButtonsDxe.inf
 INF AtollPkg/Device/$(TARGET_DEVICE)/PatchedBinaries/UFSDxe.inf
 INF AtollPkg/Device/$(TARGET_DEVICE)/PatchedBinaries/DisplayDxe.inf
 # Platform Specific Patched DXE
