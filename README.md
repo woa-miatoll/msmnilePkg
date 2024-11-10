@@ -6,9 +6,9 @@
 
 ## For users
 
-You can download the latest UEFI build by clicking [here](https://github.com/woa-msmnile/msmnilePkg/actions).
+You can download the latest UEFI build by clicking [here](https://github.com/Project-Aloha/mu_aloha_platforms/actions).
 
-![ActionStatus](https://img.shields.io/github/actions/workflow/status/woa-msmnile/msmnilepkg/all_platforms.yml)
+![ActionStatus](https://img.shields.io/github/actions/workflow/status/Project-Aloha/mu_aloha_platforms/all_platforms.yml)
 
 ## What's this?
 
@@ -26,7 +26,7 @@ Applicable to all supported targets unless noted.
 
 ## What can you do?
 
-Please see https://woa-msmnile.github.io for some tutorials.
+Please see https://Project-Aloha.github.io for some tutorials.
 
 ## Build
 
@@ -253,6 +253,21 @@ sudo docker run -v $(pwd):/build/ -it mu:v1
 | Xiaomi K40 Pro                       | xiaomi-haydn           | ❌              | None                                               |
 
 
+### Snapdragon 8 Gen 1 / 8+ Gen 1 / 7+ Gen 2 (*SM8450/SM8475/SM7475*)
+
+#### Qualcomm Technologies, Inc. Devices
+
+| Device                               | Target name            | DSDT Support    | Maintainers                                        |
+|--------------------------------------|------------------------|-----------------|----------------------------------------------------|
+| Qualcomm Technologies, Inc. HDK 8450 | qcom-hdk8450           | ❌              | None                                               |
+
+#### Xiaomi Devices
+
+| Device                               | Target name            | DSDT Support    | Contributors                                       |
+|--------------------------------------|------------------------|-----------------|----------------------------------------------------|
+| Xiaomi Pad 6 Pro                     | xiaomi-liuqin          | ❌              | None                                               |
+
+
 ### Snapdragon 8 Gen 2 (*SM8550*)
 
 #### Qualcomm Technologies, Inc. Devices
@@ -307,6 +322,4 @@ sudo docker run -v $(pwd):/build/ -it mu:v1
 - Developers in [Renegade Project](https://github.com/edk2-porting)
 - Lemon ICE
 
-## License ![License](https://img.shields.io/github/license/woa-msmnile/msmnilePkg)
-
-## Check our memePkg[https://github.com/woa-msmnile/memePkg] for other SoCs support!
+## License ![License](https://img.shields.io/github/license/Project-Aloha/mu_aloha_platforms)
