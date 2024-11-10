@@ -354,7 +354,9 @@
 
   MemoryMapHelperLib|SurfaceDuoFamilyPkg/Library/MemoryMapHelperSecLib/MemoryMapHelperSecLib.inf
   ConfigurationMapHelperLib|SurfaceDuoFamilyPkg/Library/ConfigurationMapHelperSecLib/ConfigurationMapHelperSecLib.inf
-
+## Patch: Import a finder lib to get protocol address
+  SecProtocolFinderLib|SurfaceDuoFamilyPkg/Library/QcSecProtocolsLocatorSecLib/QcSecProtocolsLocatorSecLib.inf
+##
   ShLib|SurfaceDuoFamilyPkg/Library/ShLib/ShLib.inf
   UefiCfgLib|SurfaceDuoFamilyPkg/Library/UefiCfgLib/UefiCfgLib.inf
 
