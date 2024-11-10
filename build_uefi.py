@@ -95,7 +95,7 @@ def check_args(this_target):
     available_devices_msg = "Available devices:"
     available_platforms_msg = "Available platforms:"
     available_platforms_list = get_platforms_list()
-    link_msg = "See \033[32mhttps://github.com/woa-msmnile/msmnilePkg#target-list\033[0m for all available devices."
+    link_msg = "See \033[32mhttps://github.com/project-aloha/mu_aloha_platforms#target-list\033[0m for all available devices."
 
     if this_target.platform is not None and this_target.package is not None:
         current_platform_msg = "\033[33mCurrent platform: " + this_target.platform + "\033[0m"
