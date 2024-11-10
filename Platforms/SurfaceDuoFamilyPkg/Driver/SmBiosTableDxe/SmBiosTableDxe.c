@@ -13,7 +13,7 @@
     Physical Memory Array (Type 16)
     Memory Device (Type 17) - For each socketed system-memory Device
     Memory Array Mapped Address (Type 19) - One per contiguous block per
-Physical Memroy Array System Boot Information (Type 32)
+    Physical Memory Array System Boot Information (Type 32)
 
 
   Copyright (c), 2017, Andrey Warkentin <andrey.warkentin@gmail.com>
@@ -904,7 +904,7 @@ GetSystemMemorySize(UINT64 *SystemMemorySize)
   RamPartitionEntry         *RamPartitions         = NULL;
   UINT32                     NumPartitions         = 0;
 
-  // Locate Qualcomm RamPartition Protocol (Needs EnvDxe !)
+  // Locate Qualcomm RamPartition Protocol (Needs EnvDxe!)
   Status = gBS->LocateProtocol(
       &gEfiRamPartitionProtocolGuid, NULL, (VOID *)&mRamPartitionProtocol);
 
@@ -931,25 +931,25 @@ GetSystemMemorySize(UINT64 *SystemMemorySize)
       for (UINTN i = 0; i < NumPartitions; i++)
         *SystemMemorySize += RamPartitions[i].AvailableLength;
       DEBUG(
-          (EFI_D_WARN, "The Total SystemMemorySize is 0x%016llx \n",
+          (EFI_D_WARN, "The Total SystemMemorySize is 0x%016llx\n",
            *SystemMemorySize));
 
-      UINTN DesignMemroySize = 0;
-      while (*SystemMemorySize >= DesignMemroySize)
-        DesignMemroySize += 0x40000000;
+      UINTN DesignMemorySize = 0;
+      while (*SystemMemorySize >= DesignMemorySize)
+        DesignMemorySize += 0x40000000;
 
       DEBUG(
-          (EFI_D_WARN, "The Totol DesignMemorySize is 0x%016llx \n",
-           DesignMemroySize));
-      *SystemMemorySize = DesignMemroySize;
+          (EFI_D_WARN, "The Total DesignMemorySize is 0x%016llx\n",
+           DesignMemorySize));
+      *SystemMemorySize = DesignMemorySize;
     }
   }
   else {
     // Report FixedPcdGet64(PcdSystemMemorySize) if protocol not found.
     DEBUG(
         (EFI_D_ERROR,
-         "[SmBiosTableDxe] Locate Ram Partition Protocol Failed! \n"));
-    *SystemMemorySize = FixedPcdGet64(PcdSystemMemoryBase);
+         "[SmBiosTableDxe] Locate Ram Partition Protocol Failed!\n"));
+    *SystemMemorySize = FixedPcdGet64(PcdSystemMemorySize);
   }
 
   return Status;
