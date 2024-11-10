@@ -9,10 +9,6 @@ gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Xiaomi Pad 6 Pro"
 gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"liuqin"
 gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"MP"
 
-# Necessary Addresses
-gQcomPkgTokenSpaceGuid.KernelProtocolAddress|0xA703C920
-gQcomPkgTokenSpaceGuid.XBLDTProtocolAddress|0xA703C0C8
-
 [PcdsDynamicDefault.common]
 gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1800
 gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2880
