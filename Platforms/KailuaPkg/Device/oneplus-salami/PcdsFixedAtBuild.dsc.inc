@@ -12,10 +12,6 @@ gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"1"
 gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdDisplayCallerExitDisableDisplay|FALSE
 gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdDisplayCallerStallBeforeEnable|2000
 
-# Necessary Addresses
-gQcomPkgTokenSpaceGuid.KernelProtocolAddress|0xA703A930
-gQcomPkgTokenSpaceGuid.XBLDTProtocolAddress|0xA703A0C8
-
 [PcdsDynamicDefault.common]
 gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
 gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2412

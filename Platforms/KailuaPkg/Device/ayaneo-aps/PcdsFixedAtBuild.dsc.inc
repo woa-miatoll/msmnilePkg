@@ -12,10 +12,6 @@ gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Graphic QRD"
 gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdDisplayCallerExitDisableDisplay|FALSE
 gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdDisplayCallerStallBeforeEnable|1000
 
-# Necessary Addresses
-gQcomPkgTokenSpaceGuid.KernelProtocolAddress|0xA703A948
-gQcomPkgTokenSpaceGuid.XBLDTProtocolAddress|0xA703A0C8
-
 [PcdsDynamicDefault.common]
 gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1440
 gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2560

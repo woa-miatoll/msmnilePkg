@@ -12,10 +12,6 @@ gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Sheng"
 gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdDisplayCallerExitDisableDisplay|TRUE
 gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdDisplayCallerStallBeforeEnable|2000
 
-# Necessary Addresses
-gQcomPkgTokenSpaceGuid.KernelProtocolAddress|0xA703A948
-gQcomPkgTokenSpaceGuid.XBLDTProtocolAddress|0xA703A0C8
-
 [PcdsDynamicDefault.common]
 gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|3048
 gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2032
