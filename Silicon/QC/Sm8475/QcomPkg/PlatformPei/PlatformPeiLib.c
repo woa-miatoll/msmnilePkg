@@ -18,9 +18,8 @@
 #include <Library/HobLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/PcdLib.h>
-#include <Protocol/EFIKernelInterface.h>
+#include <Library/SecProtocolFinderLib.h>
 #include "PlatformPeiLibInternal.h"
-#include "EFIDTBExtnProtocol.h"
 
 STATIC
 EFI_STATUS
@@ -148,21 +147,23 @@ VOID InstallPlatformHob()
   static int initialized = 0;
 
   if (!initialized) {
+
     ARM_MEMORY_REGION_DESCRIPTOR_EX InfoBlk;
     LocateMemoryMapAreaByName("Info Blk", &InfoBlk);
     UINTN Data3 = 0xE3414000; // FV2 Address
     UINTN InfoBlkAddress = InfoBlk.Address;
     UINTN ShLibAddress   = (UINTN)&ShLib;
-    EFI_KERNEL_PROTOCOL   *SchedIntf       = (VOID *)PcdGet64(KernelProtocolAddress);
-    EFI_DTB_EXTN_PROTOCOL *DTBExtnProtocol = (VOID *)PcdGet64(XBLDTProtocolAddress);
+    UINTN SchedIntf=0;
+    UINTN DTBExtnProtocol=0;
 
+    InitProtocolFinder(&SchedIntf, &DTBExtnProtocol);
     BuildMemHobForFv(EFI_HOB_TYPE_FV2);
     BuildGuidDataHob(
         &gEfiInfoBlkHobGuid, &InfoBlkAddress, sizeof(InfoBlkAddress));
     BuildGuidDataHob(&gEfiShLibHobGuid, &ShLibAddress, sizeof(ShLibAddress));
     BuildGuidDataHob(&gFvDecompressHobGuid, &Data3, sizeof(Data3));
-    BuildGuidDataHob(&gEfiSchedIntfGuid, &SchedIntf, sizeof(SchedIntf));            // Schedule Interface
-    BuildGuidDataHob(&gEfiSecDtbGuid, &DTBExtnProtocol, sizeof(DTBExtnProtocol));   // XBL DT
+    BuildGuidDataHob(&gEfiSchedIntfGuid, &SchedIntf, sizeof(SchedIntf));
+    BuildGuidDataHob(&gEfiSecDtbGuid, &DTBExtnProtocol, sizeof(DTBExtnProtocol));
 
     initialized = 1;
   }
