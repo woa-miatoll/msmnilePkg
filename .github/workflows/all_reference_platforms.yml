@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Build uefi for one reference device in each platforms.
+name: Build uefi for reference devices.
 
 ## Controls when the workflow will run
 on:
@@ -60,7 +60,7 @@ jobs:
         target: ${{fromJSON(needs.setup.outputs.matrix)}}
 
     needs: setup
-    uses: woa-msmnile/msmnilePkg/.github/workflows/build_platform_reference.yml@main
+    uses: Project-Aloha/mu_aloha_platforms/.github/workflows/build_platform_reference.yml@main
     with:
       platform: ${{ matrix.target }}
     secrets: inherit

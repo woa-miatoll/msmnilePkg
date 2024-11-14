@@ -15,7 +15,7 @@ env:
 jobs:
   # This workflow contains two jobs called "build" and "package"
   build:
-    uses: woa-msmnile/msmnilePkg/.github/workflows/build_platform.yml@main
+    uses: Project-Aloha/mu_aloha_platforms/.github/workflows/build_platform.yml@main
     with:
       platform: KonaPkg
     secrets: inherit

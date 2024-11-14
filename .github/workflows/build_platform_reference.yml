@@ -45,7 +45,7 @@ jobs:
         target: ${{fromJSON(needs.setup.outputs.matrix)}}
 
     needs: setup
-    uses: woa-msmnile/msmnilePkg/.github/workflows/build_device.yml@main
+    uses: Project-Aloha/mu_aloha_platforms/.github/workflows/build_device.yml@main
     with:
       target: ${{ matrix.target }}
     secrets: inherit
