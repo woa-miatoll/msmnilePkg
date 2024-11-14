@@ -70,22 +70,20 @@ jobs:
       matrix:
         target:
           [
-            { platform: "RennellPkg", codename: "rennell", chipname: "sm7125", devicename: "qrd7125" },
-            { platform: "KailuaPkg", codename: "kailua", chipname: "sm8550", devicename: "qrd8550" },
-            { platform: "KodiakPkg", codename: "kodiak", chipname: "sm7325", devicename: "qrd7325" },
-            { platform: "KonaPkg", codename: "kona", chipname: "sm8250", devicename: "mtp8250" },
-            { platform: "PalimaPkg", codename: "palima", chipname: "sm8475", devicename: "qrd8450" },
+            { platform: "RennellPkg", codename: "rennell", chipname: "sm7125" },
+            { platform: "KailuaPkg", codename: "kailua", chipname: "sm8550" },
+            { platform: "KodiakPkg", codename: "kodiak", chipname: "sm7325" },
+            { platform: "KonaPkg", codename: "kona", chipname: "sm8250" },
+            { platform: "PalimaPkg", codename: "palima", chipname: "sm8475" },
             {
               platform: "SurfaceDuo1Pkg",
               codename: "hana",
               chipname: "sm8150",
-              devicename: "qrd8150",
             },
             {
               platform: "SurfaceDuo2Pkg",
               codename: "lahaina",
               chipname: "sm8350",
-              devicename: "qrd8350",
             },
           ]
 
@@ -108,6 +106,6 @@ jobs:
       - name: Upload ${{ matrix.target.codename }}'s Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: uefi-images-${{ matrix.target.codename }}-${{ matrix.target.chipname }}-${{ matrix.target.devicename }}
+          name: uefi-images-${{ matrix.target.codename }}-${{ matrix.target.chipname }}
           path: Build/${{ matrix.target.platform }}/ci_artifacts
           compression-level: 9

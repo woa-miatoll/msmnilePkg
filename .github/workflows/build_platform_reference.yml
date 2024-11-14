@@ -30,14 +30,7 @@ jobs:
 
       - id: matrix
         run: |
-          search_list="$(find ./Platforms/${{ inputs.platform }} -maxdepth 2 -wholename "*/Device/qcom-qrd*"  -printf "\"%f\", ")"
-          if [ -z "$search_list" ]; then
-            search_list="$(find ./Platforms/${{ inputs.platform }} -maxdepth 2 -wholename "*/Device/qcom-mtp*"  -printf "\"%f\", ")"
-            if [ -z "$search_list" ]; then
-              search_list="$(find ./Platforms/${{ inputs.platform }} -maxdepth 2 -wholename "*/Device/qcom-hdk*"  -printf "\"%f\", ")"
-            fi
-          fi
-          echo "value=[$search_list]" >> $GITHUB_OUTPUT
+          echo "value=[$(find ./Platforms/${{ inputs.platform }} -maxdepth 2 -wholename "*/Device/qcom-*"  -printf "\"%f\", ")]" >> $GITHUB_OUTPUT
 
   build:
     strategy:
