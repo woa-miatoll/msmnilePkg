@@ -106,6 +106,11 @@
             SECTION UI = "RngDxe"
     }
 
+    FILE DRIVER = cccb0c28-4b24-11d5-9a5a-0090273fc14d {
+        SECTION PE32 = $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/Binaries/MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.efi
+        SECTION UI = "GraphicsConsoleDxe"
+    }
+
     FILE APPLICATION = eee9c2b1-16ca-4f34-87ea-2e6d1e160cc4 {
             SECTION UI = "QcomChargerApp"
             SECTION PE32 = $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Application/QcomChargerApp/QcomChargerApp.efi
