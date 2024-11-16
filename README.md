@@ -251,7 +251,7 @@ sudo docker run -v $(pwd):/build/ -it mu:v1
 | Device                               | Target name            | DSDT Support    | Contributors                                       |
 |--------------------------------------|------------------------|-----------------|----------------------------------------------------|
 | Xiaomi K40 Pro                       | xiaomi-haydn           | ❌              | None                                               |
-
+| Xiaomi Mi 11                         | xiaomi-venus           | ✅              | None                                               |
 
 ### Snapdragon 8 Gen 1 / 8+ Gen 1 / 7+ Gen 2 (*SM8450/SM8475/SM7475*)
 
