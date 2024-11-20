@@ -23,7 +23,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8350 ", 0x00000003)
 
     Scope (\_SB)
     {
-        Name (PSUB, "MTP08350")
+        Name (PSUB, "QRD08350")
         Name (SOID, 0xFFFFFFFF)
         Name (STOR, 0xABCABCAB)
         Name (SIDS, "899800000000000")
@@ -2017,6 +2017,22 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8350 ", 0x00000003)
                 ElseIf ((\_SB.PSUB == "CDP08350"))
                 {
                     Return ("CDP08350")
+                }
+                ElseIf ((\_SB.PSUB == "ATP08350"))
+                {
+                    Return ("ATP08350")
+                }
+                ElseIf ((\_SB.PSUB == "HDK08350"))
+                {
+                    Return ("HDK08350")
+                }
+                ElseIf ((\_SB.PSUB == "HHG08350"))
+                {
+                    Return ("HHG08350")
+                }
+                ElseIf ((\_SB.PSUB == "QSP08350"))
+                {
+                    Return ("QSP08350")
                 }
             }
 
@@ -11001,7 +11017,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8350 ", 0x00000003)
         {
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                Return (0x0F)
+                Return (Zero)
             }
 
             Method (_SUB, 0, NotSerialized)  // _SUB: Subsystem ID
@@ -13568,7 +13584,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8350 ", 0x00000003)
             {
                 Name (RBUF, Buffer (0x02)
                 {
-                     0xCC, 0x00                                       // ..
+                     0xCB, 0x00                                       // ..
                 })
                 Return (RBUF) /* \_SB_.GIO0.OFNI.RBUF */
             }
@@ -13580,20 +13596,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8350 ", 0x00000003)
                 {
                     GABL = Arg1
                 }
-            }
-
-            Name (_AEI, ResourceTemplate ()  // _AEI: ACPI Event Interrupts
-            {
-                GpioInt (Edge, ActiveHigh, Exclusive, PullNone, 0x01F4,
-                    "\\_SB.GIO0", 0x00, ResourceConsumer, ,
-                    )
-                    {   // Pin list
-                        0x0002
-                    }
-            })
-            Method (_E02, 0, NotSerialized)  // _Exx: Edge-Triggered GPE, xx=0x00-0xFF
-            {
-                Notify (\_SB.GPU0, 0x92) // Device-Specific
             }
 
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
@@ -18860,7 +18862,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8350 ", 0x00000003)
             Alias (\_SB.PSUB, _SUB)
             Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
             {
-                I2cSerialBusV2 (0x0028, ControllerInitiated, 0x00061A80,
+                I2cSerialBusV2 (0x0028, ControllerInitiated, 0x000F4240,
                     AddressingMode7Bit, "\\_SB.IC18",
                     0x00, ResourceConsumer, , Exclusive,
                     )
