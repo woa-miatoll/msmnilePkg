@@ -37,6 +37,7 @@
   MemoryAllocationLib
   MemoryMapHelperLib
   SerialPortLib
+  SecProtocolFinderLib
 
 [Guids]
   gEfiSchedIntfGuid
