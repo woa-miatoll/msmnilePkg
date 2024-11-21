@@ -244,7 +244,10 @@ VOID InitProtocolFinder(
   TE_INFO_STRUCT CoreTE = {0};
 
   // Find and fill TE info in memory
-  ASSERT_EFI_ERROR(FindTeAddr(&CoreTE));
+  if(EFI_ERROR(FindTeAddr(&CoreTE))){
+    DEBUG((DEBUG_ERROR, "Failed to find TE address\n"));
+    return;
+  };
 
   // Find Scheduler address
   if (NULL != ScheAddr) {
