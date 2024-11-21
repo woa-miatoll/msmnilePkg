@@ -17,6 +17,10 @@
   QcomPkg/QcomPkg.dec
   SurfaceDuoFamilyPkg/SurfaceDuoFamilyPkg.dec
 
+[Guids]
+  gEfiSchedIntfGuid
+  gEfiSecDtbGuid
+
 [LibraryClasses]
   BaseLib
   MemoryMapHelperLib

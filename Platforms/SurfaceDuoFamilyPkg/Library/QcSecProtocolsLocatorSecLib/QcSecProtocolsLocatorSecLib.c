@@ -242,8 +242,7 @@ VOID InitProtocolFinder(
 
   // Find Scheduler address
   if (NULL != ScheAddr) {
-    GUID SchedulerGuid = EFI_SCHED_INTF_GUID;
-    ScheIntrAddr       = find_protocol_scheduler(&CoreTE, &SchedulerGuid);
+    ScheIntrAddr       = find_protocol_scheduler(&CoreTE, &gEfiSchedIntfGuid);
     ASSERT(ScheIntrAddr > 0);
     // Fill caller's address
     *ScheAddr = ScheIntrAddr;
@@ -251,8 +250,7 @@ VOID InitProtocolFinder(
 
   // Find XBLDT address
   if (NULL != XBLDTOpsAddr) {
-    GUID XBLDTGuid = EFI_SEC_DTB_GUID;
-    SecDTOpsAddr   = find_protocol_xbldt(&CoreTE, &XBLDTGuid);
+    SecDTOpsAddr   = find_protocol_xbldt(&CoreTE, &gEfiSecDtbGuid);
     ASSERT(SecDTOpsAddr > 0);
     // Fill caller's address
     *XBLDTOpsAddr = SecDTOpsAddr;
