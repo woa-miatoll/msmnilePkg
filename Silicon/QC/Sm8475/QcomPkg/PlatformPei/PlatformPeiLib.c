@@ -139,8 +139,6 @@ VOID BuildMemHobForFv(IN UINT16 Type)
 STATIC GUID gEfiInfoBlkHobGuid   = EFI_INFORMATION_BLOCK_GUID;
 STATIC GUID gFvDecompressHobGuid = EFI_FV_DECOMPRESS_GUID;
 STATIC GUID gEfiShLibHobGuid     = EFI_SHIM_LIBRARY_GUID;
-STATIC GUID gEfiSchedIntfGuid    = EFI_SCHED_INTF_GUID;
-STATIC GUID gEfiSecDtbGuid       = EFI_SEC_DTB_GUID;
 
 VOID InstallPlatformHob()
 {
@@ -151,10 +149,10 @@ VOID InstallPlatformHob()
     ARM_MEMORY_REGION_DESCRIPTOR_EX InfoBlk;
     LocateMemoryMapAreaByName("Info Blk", &InfoBlk);
     UINTN Data3 = 0xE3414000; // FV2 Address
-    UINTN InfoBlkAddress = InfoBlk.Address;
-    UINTN ShLibAddress   = (UINTN)&ShLib;
-    UINTN SchedIntf=0;
-    UINTN DTBExtnProtocol=0;
+    UINTN InfoBlkAddress  = InfoBlk.Address;
+    UINTN ShLibAddress    = (UINTN)&ShLib;
+    UINTN SchedIntf       = 0;
+    UINTN DTBExtnProtocol = 0;
 
     InitProtocolFinder(&SchedIntf, &DTBExtnProtocol);
     BuildMemHobForFv(EFI_HOB_TYPE_FV2);

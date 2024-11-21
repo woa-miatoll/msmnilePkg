@@ -41,6 +41,10 @@
   SerialPortLib
   SecProtocolFinderLib
 
+[Guids]
+  gEfiSchedIntfGuid
+  gEfiSecDtbGuid
+
 [FixedPcd]
   gArmTokenSpaceGuid.PcdFvSize
 
