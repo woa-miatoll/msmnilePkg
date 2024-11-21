@@ -15,9 +15,6 @@ gArmTokenSpaceGuid.PcdSystemMemorySize|0x180000000 # 6GB
 # gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdDisplayCallerExitDisableDisplay|FALSE
 # gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdDisplayCallerStallBeforeEnable|2000000
 
-# Scheduler Protocol Address
-gQcomPkgTokenSpaceGuid.SchedIntfProtocolAddress|0x9FC37968
-
 [PcdsDynamicDefault.common]
 gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
 gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|2340

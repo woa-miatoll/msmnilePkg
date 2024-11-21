@@ -12,9 +12,6 @@ gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_Z_Fold_3_5G_
 # gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdDisplayCallerExitDisableDisplay|FALSE
 # gSurfaceDuoFamilyPkgTokenSpaceGuid.PcdDisplayCallerStallBeforeEnable|2000000
 
-# Scheduler Protocol Address
-gQcomPkgTokenSpaceGuid.SchedIntfProtocolAddress|0x9FC37980
-
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|2208
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|1768
