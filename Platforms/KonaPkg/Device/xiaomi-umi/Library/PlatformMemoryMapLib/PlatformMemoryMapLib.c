@@ -43,12 +43,6 @@ static ARM_MEMORY_REGION_DESCRIPTOR_EX gDeviceMemoryDescriptorEx[] = {
     { "Kernel"            , 0xA0000000, 0x10000000, AddMem, SYS_MEM, SYS_MEM_CAP, Reserv, WRITE_BACK_XN },
     { "RAM Partition"     , 0xB0000000, 0x0B800000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN },
 
-
-    { "RAM Partition"     , 0xC0000000, 0x80000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN },
-    { "RAM Partition"     , 0x140000000, 0x80000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN },
-    { "RAM Partition"     , 0x1C0000000, 0x80000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN },
-    { "RAM Partition"     , 0x240000000, 0x40000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN },
-
     //--------------------- Other -----
 
     { "IMEM Base"          , 0x14680000, 0x00040000, NoHob,  MMAP_IO, INITIALIZED, Conv,   NS_DEVICE},

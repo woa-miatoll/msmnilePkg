@@ -3,6 +3,7 @@ APRIORI DXE {
     # First, install the PCD driver and call DxeInit
     INF MdeModulePkg/Core/Dxe/DxeMain.inf
     INF MdeModulePkg/Universal/PCD/Dxe/Pcd.inf
+    INF $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/EnvDxe/EnvDxe.inf
 
     INF MdeModulePkg/Core/RuntimeDxe/RuntimeDxe.inf
 
@@ -13,6 +14,7 @@ APRIORI DXE {
     # Core Drivers
     INF EmbeddedPkg/MetronomeDxe/MetronomeDxe.inf
     INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
+    INF SurfaceDuoFamilyPkg/Driver/RamPartitionDxe/RamPartitionDxe.inf
     INF $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/SmemDxe/SmemDxe.inf
     INF $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/DALSYSDxe/DALSYSDxe.inf
     INF $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/HWIODxe/HWIODxe.inf
@@ -100,7 +102,7 @@ APRIORI DXE {
             SECTION UI = "UsbMassStorageDxe"
     }
 
-    INF QcomPkg/PatchedBinaries/UsbConfigDxe.inf
+    INF $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/PatchedBinaries/UsbConfigDxe.inf
     INF $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/PatchedBinaries/ButtonsDxe.inf
 #    INF $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/ButtonsDxe/ButtonsDxe.inf
     INF $(PACKAGE_NAME)/Device/$(TARGET_DEVICE)/Binaries/QcomPkg/Drivers/TsensDxe/TsensDxe.inf
@@ -120,4 +122,5 @@ APRIORI DXE {
 
     INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
     INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
+
 }
