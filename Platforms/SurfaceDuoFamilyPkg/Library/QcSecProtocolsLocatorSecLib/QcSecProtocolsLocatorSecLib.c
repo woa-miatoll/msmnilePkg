@@ -224,26 +224,37 @@ STATIC UINTN ScheIntrAddr = 0;
 STATIC UINTN SecDTOpsAddr = 0;
 
 VOID InitProtocolFinder(
-    EFI_PHYSICAL_ADDRESS *ScheAddr, EFI_PHYSICAL_ADDRESS *XBLDTOpsAddr)
+    IN EFI_PHYSICAL_ADDRESS *ScheAddr, IN EFI_PHYSICAL_ADDRESS *XBLDTOpsAddr)
 {
   // Do search only once
-  if (ScheIntrAddr == 0 && SecDTOpsAddr == 0) {
-    TE_INFO_STRUCT CoreTE = {0};
-    // Find and fill TE info in memory
-    FindTeAddr(&CoreTE);
-
-    // Search our GUID, get address.
-    GUID SchedulerGuid = EFI_SCHED_INTF_GUID;
-
-    GUID XBLDTGuid = EFI_SEC_DTB_GUID;
-
-    ScheIntrAddr = find_protocol_scheduler(&CoreTE, &SchedulerGuid);
-    SecDTOpsAddr = find_protocol_xbldt(&CoreTE, &XBLDTGuid);
-    ASSERT(ScheIntrAddr > 0);
-    ASSERT(SecDTOpsAddr > 0);
+  if (ScheIntrAddr != 0 || SecDTOpsAddr != 0) {
+    if (NULL != ScheAddr)
+      *ScheAddr = ScheIntrAddr;
+    if (NULL != XBLDTOpsAddr)
+      *XBLDTOpsAddr = SecDTOpsAddr;
+    return;
   }
 
-  // Fill caller's address
-  *ScheAddr     = ScheIntrAddr;
-  *XBLDTOpsAddr = SecDTOpsAddr;
+  TE_INFO_STRUCT CoreTE = {0};
+
+  // Find and fill TE info in memory
+  FindTeAddr(&CoreTE);
+
+  // Find Scheduler address
+  if (NULL != ScheAddr) {
+    GUID SchedulerGuid = EFI_SCHED_INTF_GUID;
+    ScheIntrAddr       = find_protocol_scheduler(&CoreTE, &SchedulerGuid);
+    ASSERT(ScheIntrAddr > 0);
+    // Fill caller's address
+    *ScheAddr = ScheIntrAddr;
+  }
+
+  // Find XBLDT address
+  if (NULL != XBLDTOpsAddr) {
+    GUID XBLDTGuid = EFI_SEC_DTB_GUID;
+    SecDTOpsAddr   = find_protocol_xbldt(&CoreTE, &XBLDTGuid);
+    ASSERT(SecDTOpsAddr > 0);
+    // Fill caller's address
+    *XBLDTOpsAddr = SecDTOpsAddr;
+  }
 }
