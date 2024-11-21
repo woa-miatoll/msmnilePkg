@@ -19,8 +19,14 @@ EFI_STATUS FindTeAddr(TE_INFO_STRUCT *TEInfo)
 
   // Get Previous UEFI FD Address
   Status = LocateMemoryMapAreaByName("FD Reserved I", &PreFD);
-  if (EFI_ERROR(Status))
-    DEBUG((DEBUG_ERROR, "Failed to find \"FD Reserved I\"\n"));
+  if (EFI_ERROR(Status)) {
+    DEBUG((DEBUG_ERROR, "Failed to locate \"FD Reserved I\", search \"UEFI FD\" instead.\n"));
+    Status = LocateMemoryMapAreaByName("UEFI FD", &PreFD);
+    if (EFI_ERROR(Status)) {
+      DEBUG((DEBUG_ERROR, "Failed to find \"UEFI FD\"\n"));
+      return Status;
+    }
+  }
 
   // Find Signature 0x565A 'VZ' And Arch 0x64AA 'd'
   PreFD.Address += 0x1000; // Add 0x1000 here to skip useless data
@@ -238,11 +244,11 @@ VOID InitProtocolFinder(
   TE_INFO_STRUCT CoreTE = {0};
 
   // Find and fill TE info in memory
-  FindTeAddr(&CoreTE);
+  ASSERT_EFI_ERROR(FindTeAddr(&CoreTE));
 
   // Find Scheduler address
   if (NULL != ScheAddr) {
-    ScheIntrAddr       = find_protocol_scheduler(&CoreTE, &gEfiSchedIntfGuid);
+    ScheIntrAddr = find_protocol_scheduler(&CoreTE, &gEfiSchedIntfGuid);
     ASSERT(ScheIntrAddr > 0);
     // Fill caller's address
     *ScheAddr = ScheIntrAddr;
@@ -250,7 +256,7 @@ VOID InitProtocolFinder(
 
   // Find XBLDT address
   if (NULL != XBLDTOpsAddr) {
-    SecDTOpsAddr   = find_protocol_xbldt(&CoreTE, &gEfiSecDtbGuid);
+    SecDTOpsAddr = find_protocol_xbldt(&CoreTE, &gEfiSecDtbGuid);
     ASSERT(SecDTOpsAddr > 0);
     // Fill caller's address
     *XBLDTOpsAddr = SecDTOpsAddr;
