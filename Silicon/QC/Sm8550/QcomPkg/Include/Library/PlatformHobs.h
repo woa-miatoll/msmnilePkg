@@ -66,14 +66,6 @@ typedef struct {
     }                                                                          \
   }
 
-#define EFI_SCHED_INTF_GUID                                                    \
-  {                                                                            \
-    0x8ec2bd8d, 0x56d7, 0x49ef,                                                \
-    {                                                                          \
-      0x87, 0x96, 0x63, 0x17, 0x78, 0xf8, 0xeb, 0xf8                           \
-    }                                                                          \
-  }
-
 #define EFI_SHIM_LIBRARY_GUID                                                  \
   {                                                                            \
     0xbedaeabc, 0x5e70, 0x4d66,                                                \
@@ -90,12 +82,5 @@ typedef struct {
     }                                                                          \
   }
 
-#define EFI_SEC_DTB_GUID                                                    \
-  {                                                                            \
-    0x3A06E1E8, 0x61F6, 0x11EB,                                                \
-    {                                                                          \
-      0xBB, 0xED, 0x4B, 0x47, 0x6E, 0x2F, 0xF6, 0xA7                           \
-    }                                                                          \
-  }
 
 #endif /* _PLATFORM_HOBS_H_ */
