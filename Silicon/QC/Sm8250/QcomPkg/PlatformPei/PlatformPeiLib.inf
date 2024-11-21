@@ -41,7 +41,6 @@
 
 [Guids]
   gEfiSchedIntfGuid
-  gEfiSecDtbGuid
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdFvSize
