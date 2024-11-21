@@ -13,6 +13,7 @@
 #include <Library/HobLib.h>
 #include <Library/MemoryAllocationLib.h>
 #include <Library/PcdLib.h>
+#include <Library/SecProtocolFinderLib.h>
 #include "PlatformPeiLibInternal.h"
 
 STATIC
@@ -142,13 +143,17 @@ VOID InstallPlatformHob()
     ARM_MEMORY_REGION_DESCRIPTOR_EX InfoBlk;
     LocateMemoryMapAreaByName("Info Blk", &InfoBlk);
     UINTN Data3 = 0x9D1C4000;
-
+    UINTN SchedIntfAddress    = 0;
     UINTN InfoBlkAddress = InfoBlk.Address;
     UINTN ShLibAddress   = (UINTN)&ShLib;
+
+    InitProtocolFinder(&SchedIntfAddress, NULL);
 
     BuildMemHobForFv(EFI_HOB_TYPE_FV2);
     BuildGuidDataHob(
         &gEfiInfoBlkHobGuid, &InfoBlkAddress, sizeof(InfoBlkAddress));
+    BuildGuidDataHob(
+        &gEfiSchedIntfGuid, &SchedIntfAddress, sizeof(SchedIntfAddress));
     BuildGuidDataHob(&gEfiShLibHobGuid, &ShLibAddress, sizeof(ShLibAddress));
     BuildGuidDataHob(&gFvDecompressHobGuid, &Data3, sizeof(Data3));
 

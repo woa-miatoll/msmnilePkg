@@ -37,6 +37,10 @@
   MemoryAllocationLib
   MemoryMapHelperLib
   SerialPortLib
+  SecProtocolFinderLib
+
+[Guids]
+  gEfiSchedIntfGuid
 
 [FixedPcd]
   gArmTokenSpaceGuid.PcdFvSize
